@@ -1,0 +1,14 @@
+syntax = "proto3";
+option java_package = "com.example.hyphenation";
+
+message HyphenationRequest {
+    string str =1;
+}
+
+message HyphenationResponse {
+    string str =1;
+}
+service HyphenationService{
+    rpc hyphenateSpaces(HyphenationRequest) returns (HyphenationResponse);
+    rpc hyphenateUnderscores(HyphenationRequest) returns (HyphenationResponse);
+}
