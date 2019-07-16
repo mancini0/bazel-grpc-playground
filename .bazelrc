@@ -1,0 +1,3 @@
+build --experimental_google_legacy_api --symlink_prefix=/
+common --color=yes
+test --verbose_failures --test_output=errors --test_verbose_timeout_warnings
