@@ -1,17 +1,16 @@
 syntax =  "proto3";
-package stringutils;
 option java_package = "com.example.capitalization";
 
-message CapitilazationRequest {
+message CapitalizationRequest {
     string str =1;
 }
 
-message CapitilaztionResponse {
+message CapitalizationResponse {
     string str =1;
 }
 
 
-service CapitilaztionService {
-    rpc uppercase(CapitilazationRequest) returns (CapitilaztionResponse);
-    rpc lowercase(CapitilazationRequest) returns (CapitilaztionResponse);
+service CapitalizationService {
+    rpc uppercase(CapitalizationRequest) returns (CapitalizationResponse);
+    rpc lowercase(CapitalizationRequest) returns (CapitalizationResponse);
 }
