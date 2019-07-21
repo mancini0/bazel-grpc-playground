@@ -4,6 +4,10 @@ rules_jvm_external_tag = "2.0.1"
 
 rules_jvm_external_sha = "55e8d3951647ae3dffde22b4f7f8dee11b3f70f3f89424713debd7076197eaca"
 
+dagger_version = "2.23.2"
+
+grpc_version = "1.22.1"
+
 http_archive(
     name = "rules_jvm_external",
     sha256 = rules_jvm_external_sha,
@@ -16,10 +20,15 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 maven_install(
     name = "maven",
     artifacts = [
-        "io.grpc:grpc-netty-shaded:1.22.1",
-        "io.grpc:grpc-api:1.22.1",
-        "io.grpc:grpc-testing:1.22.1",
-        "io.grpc:grpc-core:1.22.1",
+        "io.grpc:grpc-netty-shaded:%s" % grpc_version,
+        "io.grpc:grpc-api:%s" % grpc_version,
+        "io.grpc:grpc-testing:%s" % grpc_version,
+        "io.grpc:grpc-core:%s" % grpc_version,
+        "com.google.dagger:dagger:%s" % dagger_version,
+        "com.google.dagger:dagger-compiler:%s" % dagger_version,
+        "com.google.dagger:dagger-producers:%s" % dagger_version,
+        "javax.inject:javax.inject:1",
+        "com.google.guava:guava:28.0-jre",
         "junit:junit:4.12",
     ],
     repositories = [

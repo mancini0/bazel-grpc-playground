@@ -1,5 +1,6 @@
 package com.example.capitalization;
 
+import com.example.capitalization.di.DaggerCapitalizationComponent;
 import org.junit.Rule;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,9 +22,11 @@ public class CapitalizationServiceTest {
     @Before
     public void setup() throws Exception{
         String serverName = InProcessServerBuilder.generateName();
-
+        CapitalizationService capitalizationService= DaggerCapitalizationComponent.create().capitalizationService();
         grpcCleanup.register(InProcessServerBuilder
-                .forName(serverName).directExecutor().addService(new CapitalizationService()).build().start());
+                .forName(serverName)
+                .directExecutor()
+                .addService(capitalizationService));
 
         this.blockingStub = CapitalizationServiceGrpc.newBlockingStub(
 
