@@ -26,9 +26,7 @@ maven_install(
         "io.grpc:grpc-core:%s" % grpc_version,
         "com.google.dagger:dagger:%s" % dagger_version,
         "com.google.dagger:dagger-compiler:%s" % dagger_version,
-        "com.google.dagger:dagger-producers:%s" % dagger_version,
         "javax.inject:javax.inject:1",
-        "com.google.guava:guava:28.0-jre",
         "junit:junit:4.12",
     ],
     repositories = [
