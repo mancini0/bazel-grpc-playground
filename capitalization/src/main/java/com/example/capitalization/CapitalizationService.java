@@ -16,6 +16,8 @@ public class CapitalizationService extends CapitalizationServiceGrpc.Capitalizat
     @Override
     public void lowercase(Capitalization.CapitalizationRequest request,
                                      StreamObserver<Capitalization.CapitalizationResponse> responseObserver) {
+        //simulate calling external business logic:
+        fooService.doFoo();
         String lower = request.getStr().toLowerCase();
         responseObserver.onNext(Capitalization.CapitalizationResponse.newBuilder().setStr(lower).build());
         responseObserver.onCompleted();
@@ -24,7 +26,8 @@ public class CapitalizationService extends CapitalizationServiceGrpc.Capitalizat
     @Override
     public void uppercase(Capitalization.CapitalizationRequest request,
                                 StreamObserver<Capitalization.CapitalizationResponse> responseObserver) {
-
+        //simulate calling external business logic:
+        fooService.doFoo();
         String upper = request.getStr().toUpperCase();
         responseObserver.onNext(Capitalization.CapitalizationResponse.newBuilder().setStr(upper).build());
         responseObserver.onCompleted();

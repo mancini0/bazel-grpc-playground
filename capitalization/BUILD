@@ -40,7 +40,7 @@ java_test(
     srcs = [
         "src/main/java/com/example/capitalization/FooServiceImpl.java",
         "src/main/java/com/example/capitalization/di/CapitalizationComponent.java",
-        "src/main/java/com/example/capitalization/di/CapitalizatonModule.java",
+        "src/main/java/com/example/capitalization/di/CapitalizationModule.java",
         "src/test/java/com/example/capitalization/CapitalizationServiceTest.java",
     ],
     test_class = "com.example.capitalization.CapitalizationServiceTest",
@@ -59,7 +59,7 @@ java_binary(
         "src/main/java/com/example/capitalization/App.java",
         "src/main/java/com/example/capitalization/FooServiceImpl.java",
         "src/main/java/com/example/capitalization/di/CapitalizationComponent.java",
-        "src/main/java/com/example/capitalization/di/CapitalizatonModule.java",
+        "src/main/java/com/example/capitalization/di/CapitalizationModule.java",
     ],
     main_class = "com.example.capitalization.App",
     deps = [

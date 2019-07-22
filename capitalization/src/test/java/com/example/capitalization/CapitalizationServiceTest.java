@@ -1,6 +1,7 @@
 package com.example.capitalization;
 
 import com.example.capitalization.di.DaggerCapitalizationComponent;
+
 import org.junit.Rule;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,10 +27,10 @@ public class CapitalizationServiceTest {
         grpcCleanup.register(InProcessServerBuilder
                 .forName(serverName)
                 .directExecutor()
-                .addService(capitalizationService));
+                .addService(capitalizationService)
+                .build());
 
         this.blockingStub = CapitalizationServiceGrpc.newBlockingStub(
-
                 grpcCleanup.register(InProcessChannelBuilder.forName(serverName).directExecutor().build()));
 
     }
