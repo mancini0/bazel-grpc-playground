@@ -48,3 +48,6 @@ java.lang.NoSuchMethodError: io.grpc.NameResolver$Factory.newNameResolver(Ljava/
 
 
 
+<b> The only differences between hyphenation service and capitalization service: </b>
+	1.  CapitalizationService needs a FooService implementation injected into it.
+	2.  Dagger provides the implementation of FooService, but manually creating a "new CapitalizationService(new FooServiceImpl())" produces the same error.
