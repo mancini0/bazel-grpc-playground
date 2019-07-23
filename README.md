@@ -1,17 +1,17 @@
 # bazel-grpc-playground
 This repo reproduces (what might be) a bug in io.grpc.testing.GrpcCleanupRule.
 
-Using bazel 0.28.0
+Using <b>bazel 0.28.0</b>
 
-clone this repo, cd here
-bazel build //...
-bazel run //hyphenation:hyphenation-service-test (should work fine)
-bazel run //hyphenation:app (should work fine, no output will be produced, ctrl-c to exit)
-bazel run //capitalization:app (should work fine, no output will be produced, ctrl-c to exit)
+1.  clone this repo, cd here
+2.  bazel build //...
+3.  bazel run //hyphenation:hyphenation-service-test (should work fine)
+4.  bazel run //hyphenation:app (should work fine, no output will be produced, ctrl-c to exit)
+5.  bazel run //capitalization:app (should work fine, no output will be produced, ctrl-c to exit)
 
 BUT both tests executed by
 
-bazel run //capitalization:capitalization-service-test will fail with the following stack trace:
+6.  <b>bazel run //capitalization:capitalization-service-test</b>  will fail with the following stack trace:
 
 
 java.lang.NoSuchMethodError: io.grpc.NameResolver$Factory.newNameResolver(Ljava/net/URI;Lio/grpc/NameResolver$Args;)Lio/grpc/NameResolver;
