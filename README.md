@@ -53,3 +53,14 @@ java.lang.NoSuchMethodError: io.grpc.NameResolver$Factory.newNameResolver(Ljava/
 	<li>  CapitalizationService needs a FooService implementation injected into it.</li>
 	<li>Dagger provides the implementation of FooService, but manually creating a "new CapitalizationService(new FooServiceImpl())" produces the same error.</li>
 	</ul>
+
+I confirmed that changing the constructor of HyphenationService to require a concrete class does not produce the error.
+I also confirmed that changing the constructor of HyphenationService to require an interface parameter leads to the error mentioned above.
+
+public HyphenationService(String someDep){
+	//this constructor is fine.	
+}
+
+public HyphenationService(SomeInterface someDep){
+	//this constructor will lead to the error described above.	
+}
