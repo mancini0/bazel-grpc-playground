@@ -37,13 +37,13 @@ public class CapitalizationServiceTest {
 
     @Test
     public void lower() throws Exception {
-       Capitalization.CapitalizationResponse response =  blockingStub.lowercase(Capitalization.CapitalizationRequest.newBuilder().setStr("fOo").build());
-       assertEquals("foo", response.getStr());
+        Capitalization.CapitalizationResponse response =  blockingStub.lowercase(Capitalization.CapitalizationRequest.newBuilder().setStr("FoO").build());
+        assertEquals("foo", response.getStr());
     }
 
     @Test
     public void upper() throws Exception {
-        Capitalization.CapitalizationResponse response =  blockingStub.uppercase(Capitalization.CapitalizationRequest.newBuilder().setStr("foo").build());
+        Capitalization.CapitalizationResponse response =  blockingStub.uppercase(Capitalization.CapitalizationRequest.newBuilder().setStr("foO").build());
         assertEquals("FOO", response.getStr());
     }
 

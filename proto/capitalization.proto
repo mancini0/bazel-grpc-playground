@@ -11,6 +11,6 @@ message CapitalizationResponse {
 
 
 service CapitalizationService {
-    rpc uppercase(CapitalizationRequest) returns (CapitalizationResponse);
-    rpc lowercase(CapitalizationRequest) returns (CapitalizationResponse);
+    rpc uppercase (CapitalizationRequest) returns (CapitalizationResponse);
+    rpc lowercase (CapitalizationRequest) returns (CapitalizationResponse);
 }
