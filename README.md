@@ -1,5 +1,6 @@
 # bazel-grpc-playground
 This repo reproduces (what might be) a bug in io.grpc.testing.GrpcCleanupRule.
+https://github.com/grpc/grpc-java/issues/6000
 
 Using <b>bazel 0.28.0</b>
 
