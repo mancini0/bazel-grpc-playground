@@ -17,9 +17,15 @@ public class GrpcServer {
     }
 
 
-    public void start() throws IOException, InterruptedException {
+    public void start()  {
+        System.out.println("starting server");
         ServerBuilder builder = ServerBuilder.forPort(port);
         Arrays.stream(services).forEach(svc->builder.addService(svc));
-        builder.build().start().awaitTermination();
+        try {
+            builder.build().start().awaitTermination();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
     }
 }

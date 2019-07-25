@@ -24,6 +24,7 @@ maven_install(
         "io.grpc:grpc-api:%s" % grpc_version,
         "io.grpc:grpc-testing:%s" % grpc_version,
         "io.grpc:grpc-core:%s" % grpc_version,
+        "io.grpc:grpc-stub:%s" % grpc_version,
         "com.google.dagger:dagger:%s" % dagger_version,
         "com.google.dagger:dagger-compiler:%s" % dagger_version,
         "javax.inject:javax.inject:1",
@@ -36,20 +37,13 @@ maven_install(
 )
 
 http_archive(
-    name = "build_stack_rules_proto",
-    sha256 = "c62f0b442e82a6152fcd5b1c0b7c4028233a9e314078952b6b04253421d56d61",
-    strip_prefix = "rules_proto-b93b544f851fdcd3fc5c3d47aee3b7ca158a8841",
-    urls = ["https://github.com/stackb/rules_proto/archive/b93b544f851fdcd3fc5c3d47aee3b7ca158a8841.tar.gz"],
-)
-
-load("@build_stack_rules_proto//:deps.bzl", "io_grpc_grpc_java")
-
-io_grpc_grpc_java()
+     name = "io_grpc_grpc_java",
+     sha256 = "ceade229adade0d7b156f6d17fbc1df9298bfc8d3c4eeaba596f7a4a4d3701fc",
+     url = "https://github.com/grpc/grpc-java/archive/v%s.zip" % grpc_version,
+     strip_prefix="grpc-java-%s" % grpc_version
+ )
 
 load("@io_grpc_grpc_java//:repositories.bzl", "grpc_java_repositories")
 
-grpc_java_repositories(omit_com_google_protobuf = True)
 
-load("@build_stack_rules_proto//java:deps.bzl", "java_grpc_library")
-
-java_grpc_library()
+grpc_java_repositories()

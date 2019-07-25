@@ -1,8 +1,9 @@
-load("@build_stack_rules_proto//java:java_grpc_library.bzl", "java_grpc_library")
+load("@io_grpc_grpc_java//:java_grpc_library.bzl", "java_grpc_library")
 
 java_grpc_library(
     name = "capitalization-grpc",
-    deps = ["//proto:capitalization_proto"],
+    srcs = ["//proto:capitalization_proto"],
+    deps = ["//proto:capitalization_java_proto"]
 )
 
 java_plugin(
@@ -32,6 +33,9 @@ java_library(
     deps = [
         ":capitalization-grpc",
         "@maven//:javax_inject_javax_inject",
+        "@maven//:io_grpc_grpc_stub",
+        "//proto:capitalization_proto",
+        "//proto:capitalization_java_proto"
     ],
 )
 
@@ -50,6 +54,8 @@ java_test(
         "@maven//:io_grpc_grpc_core",
         "@maven//:io_grpc_grpc_testing",
         "@maven//:junit_junit",
+        "//proto:capitalization_proto",
+        "//proto:capitalization_java_proto"
     ],
 )
 
